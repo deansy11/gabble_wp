@@ -31,3 +31,5 @@ router.get("/register", (req, res) => {
 }
 
 router.post("/register")
+
+module.exports = router;

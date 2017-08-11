@@ -1,5 +1,7 @@
 const models = require("./models");
 
+
+
 // this is all just a sample of a seed file as per Alfonso's demo
 models.user.create({
   username: "",
