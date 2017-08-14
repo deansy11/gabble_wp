@@ -21,11 +21,13 @@ module.exports = function(sequelize, DataTypes) {
         this.setDataValue = ("password", hash);
       }
     }
-      // classMethods: {
-      //   associate: function(models) {
+      classMethods: {
+        associate: function(models) {
       //     // associations can be defined here
-      //   }
-      // }
+        models.user.hasMany(models.Gab, {foreignKey: 'gabId'});
+        models.user.hasMany(models.Like, {foreignKey: 'userId'});
+        }
+      }
   });
   // set an instance method on this models
   // this is going to be the function that verifies whether the input password matches the existing password
