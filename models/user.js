@@ -1,16 +1,19 @@
 'use strict';
 
-const bcrypt = require("bcryptjs");
-const bodyParser = require("body-parser");
+// const bcrypt = require("bcryptjs");
+// const bodyParser = require("body-parser");
 
 module.exports = function(sequelize, DataTypes) {
   let user = sequelize.define('user', {
-    type: DataTypes.STRING,
+    name: {
+      type: DataTypes.STRING
+    },
     username: {
       type: DataTypes.STRING,
       allowNull: false,
       unique: true
-    },
+    }
+  }, {
     // password: {
     //   type: DataTypes.STRING,
     //   allowNull: false,
@@ -24,11 +27,11 @@ module.exports = function(sequelize, DataTypes) {
       classMethods: {
         associate: function(models) {
       //     // associations can be defined here
-        models.user.hasMany(models.Gab, {foreignKey: 'gabId'});
-        models.user.hasMany(models.Like, {foreignKey: 'userId'});
+          models.user.hasMany(models.Gab, {foreignKey: 'gabId'});
+          models.user.hasMany(models.Like, {foreignKey: 'userId'});
         }
       }
-  });
+    });
   // set an instance method on this models
   // this is going to be the function that verifies whether the input password matches the existing password
   // user.prototype.auth = function(password){

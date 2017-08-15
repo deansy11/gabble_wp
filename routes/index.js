@@ -26,4 +26,9 @@ router.get("/homepage", (req, res) => {
   res.render("homepage")
 });
 
+router.post("/")
+
+// need to insert all routes with associations
+router.get("")
+
 module.exports = router;
